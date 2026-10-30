@@ -65,7 +65,6 @@ jobs:
       WRT_NAME: CWRT
       #默认WIFI名称
       WRT_SSID: CWRT
-      WRT_SSID_5G: CWRT_5G
       #默认WIFI密码
       WRT_WORD: 12345678
       #默认地址
