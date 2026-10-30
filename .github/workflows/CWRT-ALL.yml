@@ -6,6 +6,9 @@ name: CWRT-ALL
 
 #CI计划
 on:
+  #自动编译：每周一早上5点
+  schedule:
+    - cron: 0 21 * * 0
   #手动编译
   workflow_dispatch:
     inputs:
@@ -15,7 +18,7 @@ on:
         type: string
       TEST:
         description: '仅输出配置文件，不编译固件。'
-        default: 'false'
+        default: false
         required: false
         type: boolean
 
@@ -57,15 +60,16 @@ jobs:
       #编译配置
       WRT_CONFIG: ${{matrix.CONFIG}}
       #默认主题
-      WRT_THEME: aurora
+      WRT_THEME: argon
       #默认主机名
       WRT_NAME: CWRT
       #默认WIFI名称
       WRT_SSID: CWRT
+      WRT_SSID_5G: CWRT_5G
       #默认WIFI密码
       WRT_WORD: 12345678
       #默认地址
-      WRT_IP: 192.168.10.1
+      WRT_IP: 192.168.6.1
       #默认密码，仅作提示，修改无用
       WRT_PW: 无
       #源码链接
